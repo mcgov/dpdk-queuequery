@@ -18,12 +18,12 @@ CFLAGS += -O3 $(shell $(PKGCONF) --cflags libdpdk)
 LDFLAGS = $(shell $(PKGCONF) --libs libdpdk)
 
 build/$(APP): $(SRCS-y) Makefile $(PC_FILE) | build
-        $(CC) $(CFLAGS) $(SRCS-y) -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $(SRCS-y) -o $@ $(LDFLAGS)
 
 build:
-        @mkdir -p $@
+	@mkdir -p $@
 
 .PHONY: clean
 clean:
-        rm -f build/$(APP)
-        test -d build && rm -r build || true
+	rm -f build/$(APP)
+	test -d build && rm -r build || true
